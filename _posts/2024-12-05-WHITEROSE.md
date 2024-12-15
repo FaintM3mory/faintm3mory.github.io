@@ -9,7 +9,7 @@ image: /assets/img/tryhackme/ctf/whiterose/banner.png
 
 > Just like many other challenges, [this one](https://tryhackme.com/r/room/whiterose) is also inspired by Mr.Robot (and based on episode "409 Conflict" for anyone who watched the serie).
 
-# Information Gathering
+## Information Gathering
 
 Before we start this challenge, we are given some credentials (`Olivia Cortez:olivi8`) but we do not know when this will be useful.
 
@@ -49,7 +49,7 @@ Let's check if there is an [IDOR](https://portswigger.net/web-security/access-co
 We found the password of a privileged admin account!
 Now, if we try to connect with **Gayle Bev's account**, these credentials work and we retrieve Tyrell Wellick's phone number to answer the first question of the challenge.
 
-# Initial Access
+## Initial Access
 
 It took me quite some time to figure out what to do next in order to get an initial access to the target machine, but then I remembered that with the privileged admin account, we also got the access to the *Settings* tab's content that was previously hidden, so I went to check it.
 
@@ -79,7 +79,7 @@ I entered the payload in the Burp Suite request, started my netcat listener on t
 
 > I [upgraded my shell](https://0xffsec.com/handbook/shells/full-tty/) for further convenience in the next steps.
 
-# Privilege Escalation
+## Privilege Escalation
 
 The first thing that I do after I gained the shell ready is to type `sudo -l` in order to see if the **web** user has any particular privileges for a special command, and there is one :
 

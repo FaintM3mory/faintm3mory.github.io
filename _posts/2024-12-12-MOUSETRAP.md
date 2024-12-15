@@ -9,11 +9,11 @@ image: /assets/img/tryhackme/walkthrough/mousetrap/banner.png
 
 > Follow Jom and Terry on their purple teaming adventures, emulating attacks and investigating the leftover artefacts.
 
-# Red : Jom and Terry Go Purple
+## Red : Jom and Terry Go Purple
 
 > From initial access to persistence, we will emulate a three-stage attack on a Windows environment thanks to a special engagement.
 
-## Attack Chain
+### Attack Chain
 
 | **Tactics** | **Techniques** | **Procedures** |
 | ----------- | -------------- | -------------- |
@@ -21,7 +21,7 @@ image: /assets/img/tryhackme/walkthrough/mousetrap/banner.png
 | TA004: Privilege Escalation | Path Interception by Unquoted Path (T1574.009) | You will then escalate your privileges<br>through an unquoted service path. |
 | TA003: Persistence | Registry Run Keys / Startup Folder (T1547.001)<br>Create Account: Local Account (T1136.001) | Finally, you will maintain persistence thanks to registry run keys<br>and local user account creation. |
 
-## Engagement Specifications
+### Engagement Specifications
 
 | **Technique** | **Requirements** |
 | ------------- | ---------------- |
@@ -29,7 +29,7 @@ image: /assets/img/tryhackme/walkthrough/mousetrap/banner.png
 | Unquoted service path | - Use `SharpUp.exe` for enumeration, located in **C:\Users\purpletom**.<br>- Target the `Mobile Mouse` directory while executing<br>the unquoted service path abuse. |
 | Registry run keys and local account creation | - Use the `HKEY_CURRENT_USER` registry hive<br> - Use the `SYSTEM user` when creating the run key persistence<br>- Specify the registry key name (`shell`)<br> - Use the following path for the payload (`C:\Windows\Temp\shell.exe`)<br>- Specify the name of the backdoor user (`terry`) |
 
-# Initial Access
+### Initial Access
 
 Here we start with a nmap scan on the target machine :
 
@@ -95,7 +95,7 @@ We obtain a reverse shell with the **purpletom** user and we can find the first 
 
 ![first flag](/assets/img/tryhackme/walkthrough/mousetrap/5.png)
 
-# Privilege Escalation
+### Privilege Escalation
 
 According to the *Attack Chain* and the *Engagement Specifications*, we will escalate our privileges through an unquoted service path. For that, there is **SharpUp** on the target machine that we can use for enumeration.
 
@@ -127,7 +127,7 @@ Once we have our netcat listener started on our attack machine (on the right por
 ![ncat](/assets/img/tryhackme/walkthrough/mousetrap/11.png)
 ![rootflag](/assets/img/tryhackme/walkthrough/mousetrap/12.png)
 
-# Persistence
+### Persistence
 
 In order to maintain persistence in the system, we will use the registry run keys and create a local user account for it.
 Thanks to the privilege escalation step, we know have **SYSTEM** privileges which is required by the *Engagement Specifications* for creating the run key persistence.
@@ -156,7 +156,7 @@ Once we did that, if we launch the **checker.exe** binary in the Administrator's
 
 ![checkflag](/assets/img/tryhackme/walkthrough/mousetrap/13.png)
 
-# Blue : Time to Catch Terry
+## Blue : Time to Catch Terry
 
 > Now that we've finished the attack, we need to start the blue part and investigate the logs generated from the same chain attack.
 
