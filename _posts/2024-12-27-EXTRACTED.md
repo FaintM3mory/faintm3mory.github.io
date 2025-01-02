@@ -2,7 +2,7 @@
 title: Extracted
 date: 2024-12-27
 categories: [TryHackMe, CTF]
-tags: [tryhackme, ctf, reverse, wireshark, pyinstaller, c2, script]     # TAG names should always be lowercase
+tags: [tryhackme, ctf, wireshark, script, exfiltration, john, keepass]     # TAG names should always be lowercase
 comments: false
 image: /assets/img/tryhackme/ctf/extracted/banner.png
 ---
