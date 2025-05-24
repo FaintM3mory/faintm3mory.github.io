@@ -454,12 +454,7 @@ On the Login tab, we can use the credentials we got from the text file. Once log
 
 ![4](/assets/img/tryhackme/ctf/backtrack/4.png)
 
-I decide to craft a simple php webshell and try to disguise it as an image :
-
-```shell
-$ cat wbshll.php
-<?php system($_GET['cmd']); ?>
-```
+I decide to craft a simple php webshell and try to disguise it as an image.
 
 The simple upload obviously doesn’t work so I tried intercepting the request using **BurpSuite** :
 
